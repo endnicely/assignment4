@@ -174,14 +174,10 @@ for (i = 0; i < movies.length; i += 1) {
 //movies[8] = "American Pie";
 //movies[9] = "Brokeback Mountain";
 //
-//var leastFavMovies = [];
-//leastFavMovies[0] = "300";
-//leastFavMovies[1] = "American Pie";
-//leastFavMovies[2] = "Brokeback Mountain";
-//movies = movies.concat(leastFavMovies);
-//movies.sort();
-//movies.reverse();
-//window.console.log(movies.shift());
+//movies.splice(movies.indexOf("300"), 1, "Life is beautiful");
+//movies.splice(movies.indexOf("American Pie"), 1, "Gladiator");
+//movies.splice(movies.indexOf("Brokeback Mountain"), 1, "Phantom of Opera");
+//window.console.log(movies);
 
 //STEP 13
 //var employee1 = [], employee2 = [], employees = [];
@@ -258,47 +254,57 @@ for (i = 0; i < movies.length; i += 1) {
 //}
 
 //STEP 16
-//var movies = [["Gone with the wind", 1], ["Matrix", 2], ["Horse Whisper", 3], ["One night with the king", 4], ["God Father", 5]];
-//var movieNames = movies.filter(function (item) {
-//    "use strict";
-//    return item[0][0];
-////    if typeof item[0] === "string") {
-////        
-////    }
-//});
-//window.console.log(movieNames);
-//STEP 17
-var employees = ["Zak Ruvalcaba", "Joy Zhou", "Teresa Deng", "Jeff Raynold"];
-var showEmployee = function (param) {
+var movies = [["Gone with the wind", 1], ["Matrix", 2], ["Horse Whisper", 3], ["One night with the king", 4], ["God Father", 5]];
+var i, movieNames = [];
+//for (i = 0; i < movies.length; i += 1) {
+//    movieNames.push(movies[i][0]);
+//}
+var movieNames = movies.filter(function (movie) {
     "use strict";
-    window.console.log("Employees:");
-    var i;
-    for (i = 0; i < param.length; i += 1) {
-        window.console.log(param[i] + "\n");
-    }
-    
-};
-showEmployee(employees);
+    return typeof movie[0][1] === "number";
+});
+
+window.console.log(movieNames);
+//STEP 17
+//var employees = ["Zak Ruvalcaba", "Joy Zhou", "Teresa Deng", "Jeff Raynold"];
+//var showEmployee = function (param) {
+//    "use strict";
+//    window.console.log("Employees:");
+//    var i;
+//    for (i = 0; i < param.length; i += 1) {
+//        window.console.log(param[i] + "\n");
+//    }
+//    
+//};
+//showEmployee(employees);
 
 //STEP 18
-var testData = [58, '', 'abcd', true, null, false, 0];
 var filterValues = function (arr) {
     "use strict";
     var i;
     for (i = 0; i < arr.length; i += 1) {
-        
-        switch (arr[i].value) {
-        case false:
-        case 0:
-        case '':
-            arr.pop(arr[i]);
-            break;
+        window.alert(arr[i]);
+        if (arr[i] === null || arr[i] === '' || arr[i] === 0 || arr[i] === false) {
+            arr.splice(i, 1);
         }
     }
     return arr;
 };
-window.console.log(filterValues(testData));
+window.console.log(filterValues([58, '', 'abcd', true, null, false, 0]));
 
 //STEP 19
+//var randomItem = function (arr) {
+//        "use strict";
+//        var i = Math.floor(Math.random() * Math.floor(arr.length)); // expected  0, 1 ... to length -1
+//        return arr[i];
+//    };
+//
+//window.console.log(randomItem([58, 70, 60, -90.5, 88.8, 55, 2, 100, 60.7, -30.67]));
 
 //STEP 20
+//var findLargestNumber = function (arr) {
+//        "use strict";
+//        return Math.max.apply(null, arr);
+//    };
+// 
+//window.console.log(findLargestNumber([58, 70, 60, 55, 2, 100]));
