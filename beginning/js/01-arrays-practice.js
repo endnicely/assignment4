@@ -254,17 +254,18 @@ for (i = 0; i < movies.length; i += 1) {
 //}
 
 //STEP 16
-var movies = [["Gone with the wind", 1], ["Matrix", 2], ["Horse Whisper", 3], ["One night with the king", 4], ["God Father", 5]];
-var i, movieNames = [];
-//for (i = 0; i < movies.length; i += 1) {
-//    movieNames.push(movies[i][0]);
-//}
-var movieNames = movies.filter(function (movie) {
-    "use strict";
-    return typeof movie[0][1] === "number";
-});
+//var movies = [["Gone with the wind", 1], ["Matrix", 2], ["Horse Whisper", 3], ["One night with the king", 4], ["God Father", 5]];
+//var movieNames = [];
+//
+//movies.filter(function (movie) {
+//    "use strict";
+//    if (typeof movie[0] != "number") {
+//        movieNames.push(movie[0]);
+//    }
+//});
+//
+//window.console.log(movieNames);
 
-window.console.log(movieNames);
 //STEP 17
 //var employees = ["Zak Ruvalcaba", "Joy Zhou", "Teresa Deng", "Jeff Raynold"];
 //var showEmployee = function (param) {
@@ -279,18 +280,19 @@ window.console.log(movieNames);
 //showEmployee(employees);
 
 //STEP 18
-var filterValues = function (arr) {
-    "use strict";
-    var i;
-    for (i = 0; i < arr.length; i += 1) {
-        window.alert(arr[i]);
-        if (arr[i] === null || arr[i] === '' || arr[i] === 0 || arr[i] === false) {
-            arr.splice(i, 1);
-        }
-    }
-    return arr;
-};
-window.console.log(filterValues([58, '', 'abcd', true, null, false, 0]));
+//var filterValues = function (arr) {
+//    "use strict";
+//    var i, arr_filtered = [];
+//    for (i = 0; i < arr.length; i += 1) {
+//        //window.alert(arr[i]);
+//        if (arr[i] !== null && arr[i] !== '' && arr[i] !== 0 && arr[i] !== false) {
+//            arr_filtered.push(arr[i]);
+//        }
+//    }
+//    return arr_filtered;
+//};
+//window.console.log(filterValues([58, '', 'abcd', true, null, false, 0]));
+
 
 //STEP 19
 //var randomItem = function (arr) {

@@ -20,24 +20,53 @@ function sortFunction(a, b) {
     }
 }
 
+//function locStorage (invent) {
+//    "use strict";
+//    if(!localStorage.inventory) { 
+//                    
+//        localStorage.inventory = JSON.stringify(invent);
+//        
+//    } else {
+//        invent = JSON.parse(localStorage.inventory);
+//    }  
+//}
+
 function view(inventory) {
     "use strict";
-    inventory.sort(sortFunction);
+    inventory.sort(sortFunction); 
+    //locStorage(inventory);
+    if(!localStorage.inventory) { 
+                    
+        localStorage.inventory = JSON.stringify(inventory);
+        
+    } else {
+        inventory = JSON.parse(localStorage.inventory);
+    }  
+    
     
     inventory.forEach(function (product) {
         window.console.log(product[0] + " " + product[1] + " (" + product[2] + ") $" + product[3]);
-       // storage = localStorage.inventory;
-    
     });
-    
 }
 
 function update(inventory) {
     "use strict";
-    var sku = parseInt(window.prompt("Enter a product's sku number please!"), 10);
-   
     
-    inventory.forEach(function(product) {
+      if(!localStorage.inventory) { 
+                    
+        localStorage.inventory = JSON.stringify(inventory);
+        
+    } else {
+        inventory = JSON.parse(localStorage.inventory);
+    }  
+    
+    var  invalid_sku = false, sku = parseInt(window.prompt("Enter a product's sku number please!"), 10);
+   
+    while (isNaN(sku)) {
+        sku =  parseInt(window.prompt("The sku number should be a positive integer, enter a valid sku number please!"), 10);
+    }
+    
+    inventory.forEach(function (product) {
         if (product[0] === sku) {
             var i, quantity = parseInt(window.prompt("Enter a new stock quantity please!"), 10);
             if (isNaN(quantity) ||  quantity < 0) {
@@ -46,12 +75,17 @@ function update(inventory) {
             for (i = 0; i < inventory.length; i += 1) {
                 if (inventory[i][0] === sku) {
                     inventory[i][2] = quantity;
-                    return;
+                    return invalid_sku;
                 }
             }
         }
+        else {
+            sku =  parseInt(window.prompt("The sku number can't be found. Enter a valid sku number please!"), 10);
+        }
     });
-    sku =  parseInt(window.prompt("The sku number can't be found. Enter a valid sku number please!"), 10); 
+      
+   localStorage.inventory = JSON.stringify(inventory);
+    
 
 }
 
