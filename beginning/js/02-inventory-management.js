@@ -24,11 +24,10 @@ function locStorage(invent) {
     "use strict";
     if (!localStorage.inventory) {
         localStorage.inventory = JSON.stringify(invent);
-        
     } else {
         invent = JSON.parse(localStorage.inventory);
-        return invent;
     }
+    return invent;
 }
 
 function view(inventory) {
